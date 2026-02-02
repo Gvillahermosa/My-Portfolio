@@ -1,0 +1,314 @@
+#projects {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.project-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 3rem;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  border-radius: 8px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--bg-primary);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  backdrop-filter: blur(12px); /* Glass effect */
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%; /* For equal height in carousel */
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5); /* Deep shadow */
+  border-color: var(--accent);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.project-content {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1; /* Pushes tags down */
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: rgba(139, 92, 246, 0.1); /* Tinted background */
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px; /* Pill shape */
+  font-family: "Fira Code", monospace;
+}
+
+.project-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.project-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1.35rem;
+  transition: color 0.3s;
+}
+
+.project-link:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0 2rem 0; /* Space for hover effects */
+}
+
+.carousel-track {
+  display: flex;
+}
+
+.carousel-item {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.carousel-btn {
+  background: var(--card-bg);
+  border: var(--card-border);
+  color: var(--text-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 10;
+  flex-shrink: 0;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-btn:hover {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 15px var(--accent-glow);
+  border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    padding: 0 0.5rem;
+  }
+  .carousel-container {
+    gap: 0.5rem;
+  }
+}
+
+/* Project Image Overlay */
+.project-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project-image:hover .project-image-overlay {
+  opacity: 1;
+}
+
+.project-image-overlay span {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Project Modal */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.project-modal-content {
+  position: relative;
+  max-width: 1200px;
+  max-height: 80vh;
+  cursor: default;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.project-modal-image {
+  width: 100%;
+  height: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 4px;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: var(--accent);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.project-modal-close:hover {
+  background: white;
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .project-modal-overlay {
+    padding: 1rem;
+  }
+
+  .project-modal-close {
+    top: -50px;
+    right: 10px;
+  }
+}

@@ -1,0 +1,104 @@
+.skills-pyramid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px; /* Allow it to be wider if container permits */
+}
+
+.skill-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  backdrop-filter: blur(12px);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  width: 110px; /* Reduced width */
+  height: 110px; /* Fixed height for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon {
+  font-size: 2.5rem; /* Slightly smaller icon */
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-name {
+  font-size: 0.85rem; /* Smaller text */
+  font-weight: 500;
+  color: var(--text-secondary);
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* Mobile Response: Flatten the pyramid into a generic grid */
+@media (max-width: 768px) {
+  .skills-pyramid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .skills-row {
+    display: contents; /* Removes row wrappers from layout flow */
+  }
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    var(--accent-glow) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px -5px var(--accent-glow);
+}
+
+.skill-card:hover::before {
+  opacity: 0.15;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.skill-card:hover .skill-name {
+  color: var(--text-primary);
+}

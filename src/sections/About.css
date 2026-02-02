@@ -1,0 +1,42 @@
+.about-content {
+  max-width: 900px;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  gap: 0 10px;
+  padding: 0;
+  margin: 20px 0 0 0;
+  overflow: hidden;
+  list-style: none;
+}
+
+.skills-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.skills-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+@media (max-width: 480px) { 
+  .skills-list { 
+    grid-template-columns: 1fr; 
+  } 
+}

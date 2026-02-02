@@ -1,0 +1,16 @@
+.floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg-gradient);
+}
+.floating-icon {
+  position: absolute;
+  color: var(--icon-floating-color);
+  font-size: 4rem;
+}

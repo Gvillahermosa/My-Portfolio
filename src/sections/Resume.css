@@ -1,0 +1,158 @@
+#resume {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.resume-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.resume-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  backdrop-filter: blur(12px);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    var(--accent-glow) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.resume-card:hover::before {
+  opacity: 0.1;
+}
+
+.resume-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -10px var(--accent-glow);
+}
+
+.resume-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+.resume-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.resume-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.resume-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid;
+}
+
+.download-btn {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+.download-btn:hover {
+  background: transparent;
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px -5px var(--accent-glow);
+}
+
+.preview-btn {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.preview-btn:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px -5px var(--accent-glow);
+}
+
+.resume-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .resume-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .resume-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .resume-actions {
+    flex-direction: column;
+  }
+
+  .resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
