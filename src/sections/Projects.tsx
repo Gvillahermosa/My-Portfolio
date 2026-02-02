@@ -9,6 +9,12 @@ import {
 } from "react-icons/fa";
 import "./Projects.css";
 
+import idrisImg from "../assets/projects/idris.png";
+import shareSpaceImg from "../assets/projects/sharespace.png";
+import snpsImg from "../assets/projects/SNPS.png";
+import saoImg from "../assets/projects/sao.jpg";
+import jeepneyGuideImg from "../assets/projects/jeepneyguide.jpg";
+
 const projects = [
   {
     title: "Integrated Disaster Response Information System",
@@ -16,7 +22,7 @@ const projects = [
       "A comprehensive disaster response management system that helps coordinate emergency responses, track resources, and manage critical information during disasters. Features real-time updates and efficient data management.",
     tags: ["React", "TypeScript", "FastAPI", "PostgreSQL"],
     category: "web",
-    image: "/src/assets/projects/idris.png",
+    image: idrisImg,
     github: "#",
     demo: "#",
   },
@@ -26,7 +32,7 @@ const projects = [
       "A modern room booking system that simplifies space reservation and management. Features real-time availability, user authentication, and seamless booking experience with Firebase as the backend service.",
     tags: ["React", "TypeScript", "Firebase"],
     category: "web",
-    image: "/src/assets/projects/sharespace.png",
+    image: shareSpaceImg,
     github: "#",
     demo: "#",
   },
@@ -36,7 +42,7 @@ const projects = [
       "A comprehensive school management system designed to streamline administrative tasks, student records, grade management, and academic workflows. Built to enhance efficiency in educational institutions.",
     tags: ["PHP", "MySQL", "Bootstrap"],
     category: "web",
-    image: "/src/assets/projects/SNPS.png",
+    image: snpsImg,
     github: "#",
     demo: "#",
   },
@@ -46,7 +52,7 @@ const projects = [
       "A dedicated platform for managing student affairs operations including student services, document processing, and administrative workflows. Streamlines communication between students and the affairs office.",
     tags: ["Django", "Python", "SQLite"],
     category: "web",
-    image: "/src/assets/projects/sao.jpg",
+    image: saoImg,
     github: "#",
     demo: "#",
   },
@@ -56,7 +62,7 @@ const projects = [
       "A mobile navigation app designed to help commuters navigate jeepney routes efficiently. Features route planning, real-time tracking, and fare estimation to make public transportation easier and more accessible.",
     tags: ["React Native", "Expo"],
     category: "mobile",
-    image: "/src/assets/projects/jeepneyguide.jpg",
+    image: jeepneyGuideImg,
     github: "#",
     demo: "#",
   },
@@ -143,9 +149,14 @@ export const Projects = () => {
         {!isCarousel ? (
           <div className="projects-grid">
             {filteredProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} onImageClick={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <ProjectCard
+                key={index}
+                project={project}
+                index={index}
+                onImageClick={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
             ))}
           </div>
         ) : (
