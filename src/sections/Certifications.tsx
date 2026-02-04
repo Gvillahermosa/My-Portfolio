@@ -5,28 +5,36 @@ import "./Certifications.css";
 import awsCert from "../assets/certificate/aws.jpg";
 import htmlCert from "../assets/certificate/html_cert.jpg";
 import jsCert from "../assets/certificate/javascript_certificate.jpg";
+import psiteCert from "../assets/certificate/psite.jpg";
 
 const certifications = [
   {
     title: "AWS Certification",
     issuer: "Amazon Web Services",
-    date: "2024",
+    date: "2025",
     image: awsCert,
     link: "#",
   },
   {
     title: "HTML Certification",
     issuer: "Certification Provider",
-    date: "2024",
+    date: "2025",
     image: htmlCert,
     link: "https://www.freecodecamp.org/certification/gabu2003/responsive-web-design",
   },
   {
     title: "JavaScript Certification",
     issuer: "Certification Provider",
-    date: "2024",
+    date: "2025",
     image: jsCert,
     link: "http://freecodecamp.org/certification/gabu2003/javascript-algorithms-and-data-structures-v8",
+  },
+  {
+    title: "PSITE Certification",
+    issuer: "PSITE",
+    date: "2025",
+    image: psiteCert,
+    link: "#",
   },
 ];
 
